@@ -39,7 +39,7 @@ class Quote extends React.Component {
     getRandomColor() {
         const randomColor = this.randomColors[Math.floor(Math.random() * this.randomColors.length - 1)];
         this.setState({
-            color: randomColor
+            color: randomColor || "rgb(62, 175, 123)"
         });
     }
 
@@ -61,13 +61,15 @@ class Quote extends React.Component {
         return (
             <div className="wrapper" style={{ backgroundColor: color }}>
                 <div id="quote-box" style={{ color: color }}>
-                    <div id="quote-text">
-                        <i className="fa fa-quote-left"></i>
-                        {this.state.currentQuote && this.state.currentQuote.quote}
-                    </div>
-                    <br />
-                    <div id="quote-author">
-                        - {this.state.currentQuote && this.state.currentQuote.author}
+                    <div className="quote">
+                        <div id="quote-text">
+                            <i className="fa fa-quote-left"></i>
+                            {this.state.currentQuote && this.state.currentQuote.quote}
+                        </div>
+                        <br />
+                        <div id="quote-author">
+                            - {this.state.currentQuote && this.state.currentQuote.author}
+                        </div>
                     </div>
                     <br />
                     <div className="buttons-container">
@@ -84,8 +86,8 @@ class Quote extends React.Component {
                             New Quote
                         </button>
                     </div>
-
                 </div>
+                <div className="quote-copy-right">by hari</div>
             </div>
         );
     }
